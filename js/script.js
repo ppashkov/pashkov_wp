@@ -118,3 +118,11 @@
   window.onload = function(){
     $(".s1bg").css("transition", ".5s");
   }
+
+  $('.popup .close_window, .overlay').click(function (){
+    $('.popup, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
+    });
+    $('.grpopup').click(function (e){
+    $('.popup, .overlay').css({'opacity': 1, 'visibility': 'visible'});
+    e.preventDefault();
+    });

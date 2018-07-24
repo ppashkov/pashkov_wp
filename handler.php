@@ -9,11 +9,14 @@ $database = new Db();
 $email = $_POST['email'];
 $message = $_POST['message'];
 $file = $_FILES['screen']['name'];
+$postid = $_POST['postid'];
 
-$database->query('INSERT INTO bugreport (email, message, file) VALUES (:email, :message, :file)');
+$database->query('INSERT INTO bugreport (email, message, file, postid) VALUES (:email, :message, :file, :postid)');
 $database->bind(':email', $email);
 $database->bind(':message', $message);
 $database->bind(':file', $file);
+$database->bind(':postid', $postid);
+
 $database->execute();
 
 if(isset($_FILES['screen'])){
@@ -36,6 +39,6 @@ if(isset($_FILES['screen'])){
     }
 } 
 
-tg_message::sendNotif($email,$message,$file);
+tg_message::sendNotif($email,$message,$file, $postid);
 
 ?>

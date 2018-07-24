@@ -24,12 +24,15 @@ $('#cvform').on('submit', function(e){
   var $that = $(this); 
   var email = $('#email').val();
   var message = $('#message').val();
-  var $file = $('#file')
+  var postid = $('#postid').text();
+  var $file = $('#file');
   
   var data = new FormData();
   data.append( 'screen', $file[0].files[0] );
   data.append( 'message', message );
   data.append( 'email', email );
+  data.append( 'postid', postid);
+  
 
   var isValidEmail = false;
   var isValidMessage = false;

@@ -1,6 +1,6 @@
 <?php 
 	class tg_message{
-		public static function sendNotif($email,$message,$file){
+		public static function sendNotif($email,$message,$file, $postid){
 			$botToken="566386213:AAE6orgGRUZ-WvV6yqk2L7wVrpWgNPyu08g";
 			$website="https://api.telegram.org/bot".$botToken;
 			$chatId= "-263971574";  //Receiver Chat Id 
@@ -10,7 +10,8 @@
                 'text' => implode(PHP_EOL, array(
                     "<b>E-mail:</b> ". $email,
                     "<b>Сообщение:</b>  ".  $message,
-                    "Скриншот: "  . 'http://pashkov.p/formimg/'.$file,
+					"Скриншот: "  . 'http://pashkov.p/formimg/'.$file,
+					"ID Поста:" . $postid,
                   ) )
                 
                 ];
